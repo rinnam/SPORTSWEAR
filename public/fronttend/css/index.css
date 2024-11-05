@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    
+}
+
+header {
+    background: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    /* giảm khoản cách với phía dưới */
+
+}
+
+header .logo h1 {
+    color: #FFDD00;
+}
+
+header .main-nav a,
+header .auth-buttons a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+header .cart-button {
+    background: #FFDD00;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+
+
+.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.featured-products {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f8f8;
+    padding: 20px;
+}
+
+.featured-product {
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 25%;
+    padding-right: 20px;
+}
+
+.product-categories,
+.product-filters {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.product-list {
+    width: 75%;
+}
+
+.product-item {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner {
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Optional CSS for additional spacing */
+.navbar-nav .nav-item .nav-link {
+    padding: 8px 15px;
+}
+
+.navbar-brand {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+/* Styling for the Top Bar */
+.top-bar {
+    font-size: 0.9rem;
+    padding: 5px 0;
+    /*  */
+}
+
+.top-bar a {
+    text-decoration: none;
+}
+
+/* Adjust navbar items on smaller screens */
+@media (max-width: 991.98px) {
+    .navbar .btn {
+        order: 2; /* Move the cart button to the end */
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .top-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 15px;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+
