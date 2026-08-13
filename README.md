@@ -1,66 +1,284 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sportswear Website - E-Commerce Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel-based e-commerce platform for sportswear products
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [About](#about)
+- [System Requirements](#system-requirements)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [API Documentation](#api-documentation)
+- [Useful Commands](#useful-commands)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## About
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Sportswear Website** is a modern e-commerce platform built with **Laravel 9** and **Vite**, providing a complete solution for managing and selling sportswear products.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Key Features:
+- Full-featured admin interface
+- Product and category management
+- Secure authentication system
+- Modern frontend interface (Vite + JavaScript)
+- RESTful API for data operations
+- MySQL database support
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## System Requirements
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+| Tool | Version | Notes |
+|------|---------|-------|
+| **PHP** | 8.0.2+ | Required |
+| **Composer** | 2.0+ | PHP dependency manager |
+| **Node.js** | 14.0+ | For Vite build tool |
+| **npm** or **pnpm** | 6.0+ | JavaScript package manager |
+| **MySQL** | 5.7+ | Database |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Installation
+
+### Step 1: Clone the Project
+```bash
+git clone <repository-url>
+cd SPORTSWEAR
+```
+
+### Step 2: Install PHP Dependencies
+```bash
+composer install
+```
+
+### Step 3: Install Node Dependencies
+```bash
+npm install
+```
+
+### Step 4: Create Environment File
+```bash
+cp .env.example .env
+```
+
+Then, update the following in `.env`:
+```env
+APP_NAME=Sportswear
+APP_ENV=local
+APP_KEY=  # Will be generated in next step
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sportswear_website
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### Step 5: Generate Application Key
+```bash
+php artisan key:generate
+```
+
+### Step 6: Run Migrations (Create Database Tables)
+```bash
+php artisan migrate
+```
+
+### Step 7: Seed Database (Optional)
+```bash
+php artisan db:seed
+```
+
+### Step 8: Run Development Servers
+
+**Terminal 1 - Vite Development Server:**
+```bash
+npm run dev
+```
+
+**Terminal 2 - Laravel Development Server:**
+```bash
+php artisan serve
+```
+
+Access the application at: **http://localhost:8000**
+
+---
+
+## Project Structure
+
+```
+SPORTSWEAR/
+├── app/
+│   ├── Console/           # Artisan commands
+│   ├── Exceptions/        # Exception handlers
+│   ├── Http/
+│   │   ├── Controllers/   # Application controllers
+│   │   ├── Middleware/    # HTTP middleware
+│   │   └── Kernel.php     # HTTP kernel
+│   ├── Models/            # Eloquent models
+│   └── Providers/         # Service providers
+├── config/                # Configuration files
+├── database/
+│   ├── factories/         # Model factories
+│   ├── migrations/        # Database migrations
+│   └── seeders/           # Database seeders
+├── public/
+│   ├── backend/           # Admin assets (CSS, JS)
+│   ├── fronttend/         # Frontend assets
+│   └── index.php          # Entry point
+├── resources/
+│   ├── css/               # CSS files
+│   ├── js/                # JavaScript files
+│   └── views/             # Blade templates
+│       ├── admin/         # Admin panel views
+│       ├── index.blade.php
+│       └── welcome.blade.php
+├── routes/
+│   ├── api.php            # API routes
+│   ├── web.php            # Web routes
+│   └── ...
+├── storage/               # File storage
+├── tests/                 # Test files
+├── .env.example           # Environment example
+├── composer.json          # PHP dependencies
+├── package.json           # Node dependencies
+├── phpunit.xml            # PHPUnit configuration
+└── vite.config.js         # Vite configuration
+```
+
+---
+
+## Features
+
+### Admin Panel
+- User login/logout
+- Horizontal menu management
+- Vertical menu management
+- Product category management
+- Sportswear product management
+
+### Product Management
+- Add/Edit/Delete products
+- Product categorization
+- Product images
+- Detailed product descriptions
+
+### Security
+- Authentication with Laravel Sanctum
+- CSRF token validation
+- Secure password hashing
+
+### Frontend
+- Homepage
+- Responsive interface
+- Vite integration for hot reload
+
+---
+
+## API Documentation
+
+### Main Endpoints (in `routes/api.php`):
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/products` | List all products |
+| GET | `/api/products/{id}` | Get product details |
+| POST | `/api/products` | Create product (Admin) |
+| PUT | `/api/products/{id}` | Update product (Admin) |
+| DELETE | `/api/products/{id}` | Delete product (Admin) |
+
+---
+
+## Useful Commands
+
+```bash
+# Create a new migration
+php artisan make:migration create_products_table
+
+# Create a new model
+php artisan make:model Product
+
+# Create a new controller
+php artisan make:controller ProductController
+
+# Run tests
+php artisan test
+
+# Clear cache
+php artisan cache:clear
+php artisan config:clear
+
+# View all routes
+php artisan route:list
+```
+
+---
+
+## Troubleshooting
+
+### Error: `composer: command not found`
+**Solution:**
+- Install Composer from https://getcomposer.org/download/
+- Or use Laragon/XAMPP (includes composer)
+
+### Error: Database connection refused
+**Solution:**
+- Verify MySQL is running: `mysql -u root`
+- Create database: `CREATE DATABASE sportswear_website;`
+- Update `.env` with correct database credentials
+
+### Error: `php: command not found`
+**Solution:**
+- Install PHP from https://www.php.net/downloads
+- Or use Laragon: https://laragon.org/
+
+### npm run dev not working
+**Solution:**
+```bash
+npm install  # Reinstall dependencies
+npm run dev  # Run Vite again
+```
+
+---
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+We welcome all contributions! Please follow these steps:
 
-## Code of Conduct
+1. Fork the project
+2. Create a new branch: `git checkout -b feature/feature-name`
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature/feature-name`
+5. Create a Pull Request
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Support
+
+If you have any questions or issues, please:
+- Create an issue on GitHub
+- Contact the development team
+
+---
+
+**Version:** 1.0.0  
+**Framework:** Laravel 9  
+**Build Tool:** Vite  
+**Last Updated:** 2026
